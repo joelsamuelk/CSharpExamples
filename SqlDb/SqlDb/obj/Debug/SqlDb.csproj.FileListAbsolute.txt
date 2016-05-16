@@ -1,0 +1,5 @@
+c:\users\pd\documents\visual studio 2015\Projects\SqlDb\SqlDb\bin\Debug\SqlDb.dll
+c:\users\pd\documents\visual studio 2015\Projects\SqlDb\SqlDb\bin\Debug\SqlDb.pdb
+c:\users\pd\documents\visual studio 2015\Projects\SqlDb\SqlDb\obj\Debug\SqlDb.dll
+c:\users\pd\documents\visual studio 2015\Projects\SqlDb\SqlDb\obj\Debug\SqlDb.pdb
+c:\users\pd\documents\visual studio 2015\Projects\SqlDb\SqlDb\obj\Debug\SqlDb.csprojResolveAssemblyReference.cache

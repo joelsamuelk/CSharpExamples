@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+    <Property Name="Duration" Type="int" />
+  </EntityType>
+  <EntityType Name="StudentCourses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" />
+    <Property Name="CourseId" Type="int" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" />
+    <Property Name="Surname" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK__StudentCo__Cours__15502E78">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="0..1" />
+    <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentCourses">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StudentCo__Stude__145C0A3F">
+    <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+    <End Role="StudentCourses" Type="Self.StudentCourses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StudentCourses">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BIModelStoreContainer">
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentCourses" EntityType="Self.StudentCourses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__StudentCo__Cours__15502E78" Association="Self.FK__StudentCo__Cours__15502E78">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="StudentCourses" EntitySet="StudentCourses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StudentCo__Stude__145C0A3F" Association="Self.FK__StudentCo__Stude__145C0A3F">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="StudentCourses" EntitySet="StudentCourses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

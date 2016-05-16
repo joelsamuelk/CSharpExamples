@@ -1,0 +1,13 @@
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\SqlTesting.exe.config
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\SqlTesting.exe
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\SqlTesting.pdb
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\SqlDb.dll
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\SqlDb.pdb
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\obj\Debug\SqlTesting.csprojResolveAssemblyReference.cache
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\obj\Debug\SqlTesting.exe
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\obj\Debug\SqlTesting.pdb
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\Microsoft.SqlServer.Smo.dll
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+c:\Users\PD\documents\visual studio 2015\Projects\SqlDb\SqlTesting\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll
