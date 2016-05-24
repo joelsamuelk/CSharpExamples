@@ -1,0 +1,14 @@
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\bin\Debug\MazeGame.exe.config
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\bin\Debug\MazeGame.exe
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\bin\Debug\MazeGame.pdb
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MazeGame.csprojResolveAssemblyReference.cache
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MainWindow.g.cs
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\App.g.cs
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MazeGame_MarkupCompile.cache
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MazeGame_MarkupCompile.lref
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MainWindow.baml
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MazeGame.g.resources
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MazeGame.Properties.Resources.resources
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MazeGame.csproj.GenerateResource.Cache
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MazeGame.exe
+c:\users\pd\documents\visual studio 2015\Projects\MazeGame\MazeGame\obj\Debug\MazeGame.pdb
