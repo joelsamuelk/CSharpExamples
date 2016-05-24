@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CTUComputersModelStoreContainer" CdmEntityContainer="CTUComputers">
+    <EntitySetMapping Name="AssignedStations">
+      <EntityTypeMapping TypeName="CTUComputersModel.AssignedStation">
+        <MappingFragment StoreEntitySet="AssignedStations">
+          <ScalarProperty Name="WorkstationId" ColumnName="WorkstationId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="CTUComputersModel.Branch">
+        <MappingFragment StoreEntitySet="Branches">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hardwares">
+      <EntityTypeMapping TypeName="CTUComputersModel.Hardware">
+        <MappingFragment StoreEntitySet="Hardware">
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HardwareTypes">
+      <EntityTypeMapping TypeName="CTUComputersModel.HardwareType">
+        <MappingFragment StoreEntitySet="HardwareTypes">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parents">
+      <EntityTypeMapping TypeName="CTUComputersModel.Parent">
+        <MappingFragment StoreEntitySet="Parents">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="CTUComputersModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkStations">
+      <EntityTypeMapping TypeName="CTUComputersModel.WorkStation">
+        <MappingFragment StoreEntitySet="WorkStations">
+          <ScalarProperty Name="isAssigned" ColumnName="isAssigned" />
+          <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+          <ScalarProperty Name="KeyboardId" ColumnName="KeyboardId" />
+          <ScalarProperty Name="MouseId" ColumnName="MouseId" />
+          <ScalarProperty Name="ComputerId" ColumnName="ComputerId" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllPCsPerCampus">
+      <EntityTypeMapping TypeName="CTUComputersModel.AllPCsPerCampu">
+        <MappingFragment StoreEntitySet="AllPCsPerCampus">
+          <ScalarProperty Name="isAssigned" ColumnName="isAssigned" />
+          <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+          <ScalarProperty Name="KeyboardId" ColumnName="KeyboardId" />
+          <ScalarProperty Name="MouseId" ColumnName="MouseId" />
+          <ScalarProperty Name="ComputerId" ColumnName="ComputerId" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllStudentsPerPcPerCampus">
+      <EntityTypeMapping TypeName="CTUComputersModel.AllStudentsPerPcPerCampu">
+        <MappingFragment StoreEntitySet="AllStudentsPerPcPerCampus">
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="WorkstationId" ColumnName="WorkstationId" />
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AmountOfPCsPerCampus">
+      <EntityTypeMapping TypeName="CTUComputersModel.AmountOfPCsPerCampu">
+        <MappingFragment StoreEntitySet="AmountOfPCsPerCampus">
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
+          <ScalarProperty Name="PC_Count" ColumnName="PC Count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

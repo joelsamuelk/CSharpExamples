@@ -1,0 +1,20 @@
+c:\users\pd\documents\visual studio 2015\Projects\CTUEnrollment\CTUEnrollment\bin\Debug\CTUEnrollment.exe.config
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\bin\Debug\CTUEnrollment.exe.config
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\bin\Debug\CTUEnrollment.exe
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\bin\Debug\CTUEnrollment.pdb
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\bin\Debug\EntityFramework.dll
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\bin\Debug\EntityFramework.SqlServer.dll
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\bin\Debug\EntityFramework.xml
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\bin\Debug\EntityFramework.SqlServer.xml
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\CTUEnrollment.csprojResolveAssemblyReference.cache
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\MainWindow.g.cs
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\App.g.cs
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\CTUEnrollment_Content.g.cs
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\CTUEnrollment_MarkupCompile.cache
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\CTUEnrollment_MarkupCompile.lref
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\MainWindow.baml
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\CTUEnrollment.g.resources
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\CTUEnrollment.Properties.Resources.resources
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\CTUEnrollment.csproj.GenerateResource.Cache
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\CTUEnrollment.exe
+C:\CTU\Stellenbosch\Examples\C#\CTUEnrollment\CTUEnrollment\obj\Debug\CTUEnrollment.pdb

@@ -28,7 +28,7 @@ create table Students
 Id int primary key identity,
 Name nvarchar(30) not null,
 Surname nvarchar(30) not null,
-Branch int foreign key references Branches(Id) not null
+BranchId int foreign key references Branches(Id) not null
 )
 
 create table Parents
@@ -36,7 +36,7 @@ create table Parents
 Id int primary key identity,
 Name nvarchar(30) not null,
 Surname nvarchar(30) not null,
-Student int foreign key references Students(Id) not null
+StudentId int foreign key references Students(Id) not null
 )
 
 create table HardwareTypes
@@ -52,26 +52,26 @@ create table Hardware
 Id int primary key identity,
 Name nvarchar(100) not null,
 Barcode nvarchar(30) not null,
-[Type] int foreign key references HardwareTypes(Id) not null,
-Campus int foreign key references Branches(Id) not null
+[TypeId] int foreign key references HardwareTypes(Id) not null,
+CampusId int foreign key references Branches(Id) not null
 )
 
 create table WorkStations
 (
 Id int primary key identity,
-Campus int foreign key references Branches(Id) not null,
-Computer int  not null foreign key references Hardware(Id),
-Mouse int  not null foreign key references Hardware(Id),
-Keyboard int  not null foreign key references Hardware(Id),
-Screen int not null  foreign key references Hardware(Id),
+CampusId int foreign key references Branches(Id) not null,
+ComputerId int  not null foreign key references Hardware(Id),
+MouseId int  not null foreign key references Hardware(Id),
+KeyboardId int  not null foreign key references Hardware(Id),
+ScreenId int not null  foreign key references Hardware(Id),
 isAssigned bit  not null default 0,
 )
 
 create table AssignedStations
 (
 Id int primary key identity,
-Student int foreign key references Students(Id) not null,
-Workstation int foreign key references WorkStations(Id) not null
+StudentId int foreign key references Students(Id) not null,
+WorkstationId int foreign key references WorkStations(Id) not null
 )
 
 go
@@ -82,10 +82,10 @@ go
 
 create view AllStudentsPerPcPerCampus
 as
-select Student, Workstation, Campus from Students
-join AssignedStations on AssignedStations.Student = Students.Id
-join WorkStations on WorkStations.Computer = AssignedStations.Workstation
+select StudentId, WorkstationId, CampusId from Students
+join AssignedStations on AssignedStations.StudentId = Students.Id
+join WorkStations on WorkStations.ComputerId = AssignedStations.WorkstationId
 go
 create view AmountOfPCsPerCampus
 as
-select count(Id) as [PC Count] , Campus from WorkStations group by Campus
+select count(Id) as [PC Count] , CampusId from WorkStations group by CampusId

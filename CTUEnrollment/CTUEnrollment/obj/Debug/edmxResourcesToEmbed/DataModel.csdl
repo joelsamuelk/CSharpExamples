@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CTUComputersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CTUComputers" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AssignedStations" EntityType="CTUComputersModel.AssignedStation" />
+    <EntitySet Name="Branches" EntityType="CTUComputersModel.Branch" />
+    <EntitySet Name="Hardwares" EntityType="CTUComputersModel.Hardware" />
+    <EntitySet Name="HardwareTypes" EntityType="CTUComputersModel.HardwareType" />
+    <EntitySet Name="Parents" EntityType="CTUComputersModel.Parent" />
+    <EntitySet Name="Students" EntityType="CTUComputersModel.Student" />
+    <EntitySet Name="WorkStations" EntityType="CTUComputersModel.WorkStation" />
+    <EntitySet Name="AllPCsPerCampus" EntityType="CTUComputersModel.AllPCsPerCampu" />
+    <EntitySet Name="AllStudentsPerPcPerCampus" EntityType="CTUComputersModel.AllStudentsPerPcPerCampu" />
+    <EntitySet Name="AmountOfPCsPerCampus" EntityType="CTUComputersModel.AmountOfPCsPerCampu" />
+    <AssociationSet Name="FK__AssignedS__Stude__25869641" Association="CTUComputersModel.FK__AssignedS__Stude__25869641">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="AssignedStation" EntitySet="AssignedStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AssignedS__Works__267ABA7A" Association="CTUComputersModel.FK__AssignedS__Works__267ABA7A">
+      <End Role="WorkStation" EntitySet="WorkStations" />
+      <End Role="AssignedStation" EntitySet="AssignedStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hardware__Campus__1B0907CE" Association="CTUComputersModel.FK__Hardware__Campus__1B0907CE">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="Hardware" EntitySet="Hardwares" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__Branch__1273C1CD" Association="CTUComputersModel.FK__Students__Branch__1273C1CD">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Campu__1DE57479" Association="CTUComputersModel.FK__WorkStati__Campu__1DE57479">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="WorkStation" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hardware__TypeId__1A14E395" Association="CTUComputersModel.FK__Hardware__TypeId__1A14E395">
+      <End Role="HardwareType" EntitySet="HardwareTypes" />
+      <End Role="Hardware" EntitySet="Hardwares" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Compu__1ED998B2" Association="CTUComputersModel.FK__WorkStati__Compu__1ED998B2">
+      <End Role="Hardware" EntitySet="Hardwares" />
+      <End Role="WorkStation" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Keybo__20C1E124" Association="CTUComputersModel.FK__WorkStati__Keybo__20C1E124">
+      <End Role="Hardware" EntitySet="Hardwares" />
+      <End Role="WorkStation" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Mouse__1FCDBCEB" Association="CTUComputersModel.FK__WorkStati__Mouse__1FCDBCEB">
+      <End Role="Hardware" EntitySet="Hardwares" />
+      <End Role="WorkStation" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Scree__21B6055D" Association="CTUComputersModel.FK__WorkStati__Scree__21B6055D">
+      <End Role="Hardware" EntitySet="Hardwares" />
+      <End Role="WorkStation" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Parents__Student__15502E78" Association="CTUComputersModel.FK__Parents__Student__15502E78">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Parent" EntitySet="Parents" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AssignedStation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="WorkstationId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="CTUComputersModel.FK__AssignedS__Stude__25869641" FromRole="AssignedStation" ToRole="Student" />
+    <NavigationProperty Name="WorkStation" Relationship="CTUComputersModel.FK__AssignedS__Works__267ABA7A" FromRole="AssignedStation" ToRole="WorkStation" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Hardwares" Relationship="CTUComputersModel.FK__Hardware__Campus__1B0907CE" FromRole="Branch" ToRole="Hardware" />
+    <NavigationProperty Name="Students" Relationship="CTUComputersModel.FK__Students__Branch__1273C1CD" FromRole="Branch" ToRole="Student" />
+    <NavigationProperty Name="WorkStations" Relationship="CTUComputersModel.FK__WorkStati__Campu__1DE57479" FromRole="Branch" ToRole="WorkStation" />
+  </EntityType>
+  <EntityType Name="Hardware">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Barcode" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="TypeId" Type="Int32" Nullable="false" />
+    <Property Name="CampusId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Branch" Relationship="CTUComputersModel.FK__Hardware__Campus__1B0907CE" FromRole="Hardware" ToRole="Branch" />
+    <NavigationProperty Name="HardwareType" Relationship="CTUComputersModel.FK__Hardware__TypeId__1A14E395" FromRole="Hardware" ToRole="HardwareType" />
+    <NavigationProperty Name="WorkStations" Relationship="CTUComputersModel.FK__WorkStati__Compu__1ED998B2" FromRole="Hardware" ToRole="WorkStation" />
+  </EntityType>
+  <EntityType Name="HardwareType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Hardwares" Relationship="CTUComputersModel.FK__Hardware__TypeId__1A14E395" FromRole="HardwareType" ToRole="Hardware" />
+  </EntityType>
+  <EntityType Name="Parent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Student" Relationship="CTUComputersModel.FK__Parents__Student__15502E78" FromRole="Parent" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="BranchId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AssignedStations" Relationship="CTUComputersModel.FK__AssignedS__Stude__25869641" FromRole="Student" ToRole="AssignedStation" />
+    <NavigationProperty Name="Branch" Relationship="CTUComputersModel.FK__Students__Branch__1273C1CD" FromRole="Student" ToRole="Branch" />
+    <NavigationProperty Name="Parents" Relationship="CTUComputersModel.FK__Parents__Student__15502E78" FromRole="Student" ToRole="Parent" />
+  </EntityType>
+  <EntityType Name="WorkStation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CampusId" Type="Int32" Nullable="false" />
+    <Property Name="ComputerId" Type="Int32" Nullable="false" />
+    <Property Name="MouseId" Type="Int32" Nullable="false" />
+    <Property Name="KeyboardId" Type="Int32" Nullable="false" />
+    <Property Name="ScreenId" Type="Int32" Nullable="false" />
+    <Property Name="isAssigned" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AssignedStations" Relationship="CTUComputersModel.FK__AssignedS__Works__267ABA7A" FromRole="WorkStation" ToRole="AssignedStation" />
+    <NavigationProperty Name="Branch" Relationship="CTUComputersModel.FK__WorkStati__Campu__1DE57479" FromRole="WorkStation" ToRole="Branch" />
+    <NavigationProperty Name="Computer" Relationship="CTUComputersModel.FK__WorkStati__Compu__1ED998B2" FromRole="WorkStation" ToRole="Hardware" />
+    <NavigationProperty Name="Keyboard" Relationship="CTUComputersModel.FK__WorkStati__Keybo__20C1E124" FromRole="WorkStation" ToRole="Hardware" />
+    <NavigationProperty Name="Mouse" Relationship="CTUComputersModel.FK__WorkStati__Mouse__1FCDBCEB" FromRole="WorkStation" ToRole="Hardware" />
+    <NavigationProperty Name="Screen" Relationship="CTUComputersModel.FK__WorkStati__Scree__21B6055D" FromRole="WorkStation" ToRole="Hardware" />
+  </EntityType>
+  <EntityType Name="AllPCsPerCampu">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="CampusId" />
+      <PropertyRef Name="ComputerId" />
+      <PropertyRef Name="MouseId" />
+      <PropertyRef Name="KeyboardId" />
+      <PropertyRef Name="ScreenId" />
+      <PropertyRef Name="isAssigned" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CampusId" Type="Int32" Nullable="false" />
+    <Property Name="ComputerId" Type="Int32" Nullable="false" />
+    <Property Name="MouseId" Type="Int32" Nullable="false" />
+    <Property Name="KeyboardId" Type="Int32" Nullable="false" />
+    <Property Name="ScreenId" Type="Int32" Nullable="false" />
+    <Property Name="isAssigned" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AllStudentsPerPcPerCampu">
+    <Key>
+      <PropertyRef Name="StudentId" />
+      <PropertyRef Name="WorkstationId" />
+      <PropertyRef Name="CampusId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="WorkstationId" Type="Int32" Nullable="false" />
+    <Property Name="CampusId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AmountOfPCsPerCampu">
+    <Key>
+      <PropertyRef Name="CampusId" />
+    </Key>
+    <Property Name="PC_Count" Type="Int32" />
+    <Property Name="CampusId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__AssignedS__Stude__25869641">
+    <End Type="CTUComputersModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="CTUComputersModel.AssignedStation" Role="AssignedStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssignedStation">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AssignedS__Works__267ABA7A">
+    <End Type="CTUComputersModel.WorkStation" Role="WorkStation" Multiplicity="1" />
+    <End Type="CTUComputersModel.AssignedStation" Role="AssignedStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkStation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssignedStation">
+        <PropertyRef Name="WorkstationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hardware__Campus__1B0907CE">
+    <End Type="CTUComputersModel.Branch" Role="Branch" Multiplicity="1" />
+    <End Type="CTUComputersModel.Hardware" Role="Hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hardware">
+        <PropertyRef Name="CampusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__Branch__1273C1CD">
+    <End Type="CTUComputersModel.Branch" Role="Branch" Multiplicity="1" />
+    <End Type="CTUComputersModel.Student" Role="Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Campu__1DE57479">
+    <End Type="CTUComputersModel.Branch" Role="Branch" Multiplicity="1" />
+    <End Type="CTUComputersModel.WorkStation" Role="WorkStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStation">
+        <PropertyRef Name="CampusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hardware__TypeId__1A14E395">
+    <End Type="CTUComputersModel.HardwareType" Role="HardwareType" Multiplicity="1" />
+    <End Type="CTUComputersModel.Hardware" Role="Hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HardwareType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hardware">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Compu__1ED998B2">
+    <End Type="CTUComputersModel.Hardware" Role="Hardware" Multiplicity="1" />
+    <End Type="CTUComputersModel.WorkStation" Role="WorkStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStation">
+        <PropertyRef Name="ComputerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Keybo__20C1E124">
+    <End Type="CTUComputersModel.Hardware" Role="Hardware" Multiplicity="1" />
+    <End Type="CTUComputersModel.WorkStation" Role="WorkStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStation">
+        <PropertyRef Name="KeyboardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Mouse__1FCDBCEB">
+    <End Type="CTUComputersModel.Hardware" Role="Hardware" Multiplicity="1" />
+    <End Type="CTUComputersModel.WorkStation" Role="WorkStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStation">
+        <PropertyRef Name="MouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Scree__21B6055D">
+    <End Type="CTUComputersModel.Hardware" Role="Hardware" Multiplicity="1" />
+    <End Type="CTUComputersModel.WorkStation" Role="WorkStation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStation">
+        <PropertyRef Name="ScreenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Parents__Student__15502E78">
+    <End Type="CTUComputersModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="CTUComputersModel.Parent" Role="Parent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parent">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

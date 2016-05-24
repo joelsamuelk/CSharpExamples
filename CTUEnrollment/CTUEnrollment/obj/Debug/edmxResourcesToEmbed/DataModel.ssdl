@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CTUComputersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AssignedStations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="WorkstationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Branches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Hardware">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Barcode" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="TypeId" Type="int" Nullable="false" />
+    <Property Name="CampusId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HardwareTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="BranchId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkStations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CampusId" Type="int" Nullable="false" />
+    <Property Name="ComputerId" Type="int" Nullable="false" />
+    <Property Name="MouseId" Type="int" Nullable="false" />
+    <Property Name="KeyboardId" Type="int" Nullable="false" />
+    <Property Name="ScreenId" Type="int" Nullable="false" />
+    <Property Name="isAssigned" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CTUComputers.dbo.AllPCsPerCampus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllPCsPerCampus">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="CampusId" />
+      <PropertyRef Name="ComputerId" />
+      <PropertyRef Name="MouseId" />
+      <PropertyRef Name="KeyboardId" />
+      <PropertyRef Name="ScreenId" />
+      <PropertyRef Name="isAssigned" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CampusId" Type="int" Nullable="false" />
+    <Property Name="ComputerId" Type="int" Nullable="false" />
+    <Property Name="MouseId" Type="int" Nullable="false" />
+    <Property Name="KeyboardId" Type="int" Nullable="false" />
+    <Property Name="ScreenId" Type="int" Nullable="false" />
+    <Property Name="isAssigned" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CTUComputers.dbo.AllStudentsPerPcPerCampus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllStudentsPerPcPerCampus">
+    <Key>
+      <PropertyRef Name="StudentId" />
+      <PropertyRef Name="WorkstationId" />
+      <PropertyRef Name="CampusId" />
+    </Key>
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="WorkstationId" Type="int" Nullable="false" />
+    <Property Name="CampusId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CTUComputers.dbo.AmountOfPCsPerCampus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AmountOfPCsPerCampus">
+    <Key>
+      <PropertyRef Name="CampusId" />
+    </Key>
+    <Property Name="PC Count" Type="int" />
+    <Property Name="CampusId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__AssignedS__Stude__25869641">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="AssignedStations" Type="Self.AssignedStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssignedStations">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AssignedS__Works__267ABA7A">
+    <End Role="WorkStations" Type="Self.WorkStations" Multiplicity="1" />
+    <End Role="AssignedStations" Type="Self.AssignedStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkStations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AssignedStations">
+        <PropertyRef Name="WorkstationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hardware__Campus__1B0907CE">
+    <End Role="Branches" Type="Self.Branches" Multiplicity="1" />
+    <End Role="Hardware" Type="Self.Hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branches">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hardware">
+        <PropertyRef Name="CampusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hardware__TypeId__1A14E395">
+    <End Role="HardwareTypes" Type="Self.HardwareTypes" Multiplicity="1" />
+    <End Role="Hardware" Type="Self.Hardware" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HardwareTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hardware">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Parents__Student__15502E78">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Parents" Type="Self.Parents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Parents">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Students__Branch__1273C1CD">
+    <End Role="Branches" Type="Self.Branches" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branches">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Campu__1DE57479">
+    <End Role="Branches" Type="Self.Branches" Multiplicity="1" />
+    <End Role="WorkStations" Type="Self.WorkStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branches">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStations">
+        <PropertyRef Name="CampusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Compu__1ED998B2">
+    <End Role="Hardware" Type="Self.Hardware" Multiplicity="1" />
+    <End Role="WorkStations" Type="Self.WorkStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStations">
+        <PropertyRef Name="ComputerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Keybo__20C1E124">
+    <End Role="Hardware" Type="Self.Hardware" Multiplicity="1" />
+    <End Role="WorkStations" Type="Self.WorkStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStations">
+        <PropertyRef Name="KeyboardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Mouse__1FCDBCEB">
+    <End Role="Hardware" Type="Self.Hardware" Multiplicity="1" />
+    <End Role="WorkStations" Type="Self.WorkStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStations">
+        <PropertyRef Name="MouseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkStati__Scree__21B6055D">
+    <End Role="Hardware" Type="Self.Hardware" Multiplicity="1" />
+    <End Role="WorkStations" Type="Self.WorkStations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hardware">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkStations">
+        <PropertyRef Name="ScreenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CTUComputersModelStoreContainer">
+    <EntitySet Name="AssignedStations" EntityType="Self.AssignedStations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Branches" EntityType="Self.Branches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hardware" EntityType="Self.Hardware" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HardwareTypes" EntityType="Self.HardwareTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parents" EntityType="Self.Parents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkStations" EntityType="Self.WorkStations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllPCsPerCampus" EntityType="Self.AllPCsPerCampus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllPCsPerCampus].[Id] AS [Id], 
+    [AllPCsPerCampus].[CampusId] AS [CampusId], 
+    [AllPCsPerCampus].[ComputerId] AS [ComputerId], 
+    [AllPCsPerCampus].[MouseId] AS [MouseId], 
+    [AllPCsPerCampus].[KeyboardId] AS [KeyboardId], 
+    [AllPCsPerCampus].[ScreenId] AS [ScreenId], 
+    [AllPCsPerCampus].[isAssigned] AS [isAssigned]
+    FROM [dbo].[AllPCsPerCampus] AS [AllPCsPerCampus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllStudentsPerPcPerCampus" EntityType="Self.AllStudentsPerPcPerCampus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllStudentsPerPcPerCampus].[StudentId] AS [StudentId], 
+    [AllStudentsPerPcPerCampus].[WorkstationId] AS [WorkstationId], 
+    [AllStudentsPerPcPerCampus].[CampusId] AS [CampusId]
+    FROM [dbo].[AllStudentsPerPcPerCampus] AS [AllStudentsPerPcPerCampus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AmountOfPCsPerCampus" EntityType="Self.AmountOfPCsPerCampus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AmountOfPCsPerCampus].[PC Count] AS [PC Count], 
+    [AmountOfPCsPerCampus].[CampusId] AS [CampusId]
+    FROM [dbo].[AmountOfPCsPerCampus] AS [AmountOfPCsPerCampus]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__AssignedS__Stude__25869641" Association="Self.FK__AssignedS__Stude__25869641">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="AssignedStations" EntitySet="AssignedStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AssignedS__Works__267ABA7A" Association="Self.FK__AssignedS__Works__267ABA7A">
+      <End Role="WorkStations" EntitySet="WorkStations" />
+      <End Role="AssignedStations" EntitySet="AssignedStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hardware__Campus__1B0907CE" Association="Self.FK__Hardware__Campus__1B0907CE">
+      <End Role="Branches" EntitySet="Branches" />
+      <End Role="Hardware" EntitySet="Hardware" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hardware__TypeId__1A14E395" Association="Self.FK__Hardware__TypeId__1A14E395">
+      <End Role="HardwareTypes" EntitySet="HardwareTypes" />
+      <End Role="Hardware" EntitySet="Hardware" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Parents__Student__15502E78" Association="Self.FK__Parents__Student__15502E78">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Parents" EntitySet="Parents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Students__Branch__1273C1CD" Association="Self.FK__Students__Branch__1273C1CD">
+      <End Role="Branches" EntitySet="Branches" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Campu__1DE57479" Association="Self.FK__WorkStati__Campu__1DE57479">
+      <End Role="Branches" EntitySet="Branches" />
+      <End Role="WorkStations" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Compu__1ED998B2" Association="Self.FK__WorkStati__Compu__1ED998B2">
+      <End Role="Hardware" EntitySet="Hardware" />
+      <End Role="WorkStations" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Keybo__20C1E124" Association="Self.FK__WorkStati__Keybo__20C1E124">
+      <End Role="Hardware" EntitySet="Hardware" />
+      <End Role="WorkStations" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Mouse__1FCDBCEB" Association="Self.FK__WorkStati__Mouse__1FCDBCEB">
+      <End Role="Hardware" EntitySet="Hardware" />
+      <End Role="WorkStations" EntitySet="WorkStations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkStati__Scree__21B6055D" Association="Self.FK__WorkStati__Scree__21B6055D">
+      <End Role="Hardware" EntitySet="Hardware" />
+      <End Role="WorkStations" EntitySet="WorkStations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
